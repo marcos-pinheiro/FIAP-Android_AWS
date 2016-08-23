@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/default_margin"
-    android:paddingLeft="@dimen/default_margin"
-    android:paddingRight="@dimen/default_margin"
-    android:paddingTop="@dimen/default_margin"
-    tools:context=".PedidoActivity"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvUsuario"
-        tools:text="Olá, Marcos"
-        android:gravity="right" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/default_margin"
+        android:paddingLeft="@dimen/default_margin"
+        android:paddingRight="@dimen/default_margin"
+        android:paddingTop="@dimen/default_margin"
+        tools:context=".PedidoActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorText"
-        android:text="@string/txt_escolha_pizza" /> <!-- tools: Serve para dev. é exibido apenas no layout e não no app -->
+        <TextView
+            android:id="@+id/tvUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            tools:text="Olá, Marcos" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Header"
+            android:text="@string/txt_escolha_pizza"
+            android:textColor="@color/colorText" />
+        <!-- tools: Serve para dev. é exibido apenas no layout e não no app -->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,11 +41,13 @@
 
                 <CheckBox
                     style="@style/checkbox_pizza"
-                    android:text="@string/txt_pizza_atum"/>
+                    android:text="@string/txt_pizza_atum"
+                    android:id="@+id/cbAtum"/>
 
                 <CheckBox
                     style="@style/checkbox_pizza"
-                    android:text="@string/txt_pizza_bacon"/>
+                    android:text="@string/txt_pizza_bacon"
+                    android:id="@+id/cbBacon"/>
             </LinearLayout>
 
             <LinearLayout
@@ -50,96 +57,118 @@
 
                 <CheckBox
                     style="@style/checkbox_pizza"
-                    android:text="@string/txt_pizza_calabresa"/>
+                    android:text="@string/txt_pizza_calabresa"
+                    android:id="@+id/cbCalabresa"/>
 
                 <CheckBox
                     style="@style/checkbox_pizza"
-                    android:text="@string/txt_pizza_mussarela"/>
+                    android:text="@string/txt_pizza_mussarela"
+                    android:id="@+id/cbMussarela"/>
             </LinearLayout>
 
         </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/txt_tamanho_pizza" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Header"
+            android:text="@string/txt_tamanho_pizza" />
 
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/rgTamanhoPizza"
-        android:orientation="horizontal">
+        <RadioGroup
+            android:id="@+id/rgTamanhoPizza"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="0.3"
                 android:text="@string/txt_pizza_grande"
-                android:layout_weight="0.3"/>
+                android:id="@+id/rbGrande"/>
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="0.3"
                 android:text="@string/txt_pizza_media"
-                android:layout_weight="0.3"/>
+                android:id="@+id/rbMedia"/>
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="0.3"
                 android:text="@string/txt_pizza_pequena"
-                android:layout_weight="0.3"/> <!-- Como se fosse um 33% -->
-    </RadioGroup>
+                android:id="@+id/rbPequena"/>
+            <!-- Como se fosse um 33% -->
+        </RadioGroup>
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/txt_forma_pagamento"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Header"
+            android:text="@string/txt_forma_pagamento" />
 
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/opcoes_pagamento"/>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/opcoes_pagamento"
+            android:id="@+id/spPagamentos"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Header"
+            android:text="@string/txt_extras" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <CheckBox
-                style="@style/checkbox_pizza"
-                android:text="@string/txt_borda_recheada"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-            <CheckBox
-                style="@style/checkbox_pizza"
-                android:text="@string/txt_recheio_extra"/>
+                <CheckBox
+                    style="@style/checkbox_pizza"
+                    android:text="@string/txt_borda_recheada"
+                    android:id="@+id/cbBordaRecheada"/>
+
+                <CheckBox
+                    style="@style/checkbox_pizza"
+                    android:text="@string/txt_recheio_extra"
+                    android:id="@+id/cbRecheioExtra"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    style="@style/checkbox_pizza"
+                    android:text="@string/txt_refrigerante"
+                    android:id="@+id/cbRefrigerante"/>
+
+                <CheckBox
+                    style="@style/checkbox_pizza"
+                    android:text="@string/txt_sobremesa"
+                    android:id="@+id/cbSobremesa"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
+        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <CheckBox
-                style="@style/checkbox_pizza"
-                android:text="@string/txt_refrigerante"/>
-
-            <CheckBox
-                style="@style/checkbox_pizza"
-                android:text="@string/txt_sobremesa"/>
-
-        </LinearLayout>
+            android:text="@string/txt_calcular"
+            style="@style/Fiap.Botao"
+            android:onClick="calcular"/>
 
     </LinearLayout>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/txt_calcular"/>
-
-</LinearLayout>
+</ScrollView>

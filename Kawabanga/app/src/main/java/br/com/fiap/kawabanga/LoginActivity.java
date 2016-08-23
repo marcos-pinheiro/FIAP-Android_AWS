@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import br.com.fiap.kawabanga.models.Usuario;
+
 public class LoginActivity extends AppCompatActivity {
 
     private TextInputLayout tilLogin;
@@ -29,7 +31,8 @@ public class LoginActivity extends AppCompatActivity {
 
         if("admin".equals(user) && "admin".equals(pass)) {
             Intent intent = new Intent(this, PedidoActivity.class);
-            intent.putExtra("user", user);
+            //intent.putExtra("user", user);
+            intent.putExtra("user", new Usuario(user, pass));
             startActivity(intent);
         }
         else {
